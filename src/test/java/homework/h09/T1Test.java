@@ -11,48 +11,70 @@ public class T1Test {
   @Test
   void allEqualGivesAllPairs() {
     for (int n = 1; n <= 100; n++) {
-      int[] nums = new int[n];
-      Arrays.fill(nums, 7);
-      assertThat(task1.numIdenticalPairs(nums)).isEqualTo(n * (n - 1) / 2);
+      int[] input = new int[n];
+      Arrays.fill(input, 7);
+      var actual = task1.numIdenticalPairs(input);
+
+      assertThat(actual).isEqualTo(n * (n - 1) / 2);
     }
   }
 
   @Test
   void allDistinct() {
-    assertThat(task1.numIdenticalPairs(new int[] {1, 2, 3})).isZero();
+    int[] input = new int[] {1, 2, 3};
+    var actual = task1.numIdenticalPairs(input);
+
+    assertThat(actual).isZero();
   }
 
   @Test
   void singleElement() {
-    assertThat(task1.numIdenticalPairs(new int[] {5})).isZero();
+    int[] input = new int[] {5};
+    var actual = task1.numIdenticalPairs(input);
+
+    assertThat(actual).isZero();
   }
 
   @Test
   void twoEqualElements() {
-    assertThat(task1.numIdenticalPairs(new int[] {2, 2})).isEqualTo(1);
+    int[] input = new int[] {2, 2};
+    var actual = task1.numIdenticalPairs(input);
+
+    assertThat(actual).isEqualTo(1);
   }
 
   @Test
   void mixedValues() {
-    assertThat(task1.numIdenticalPairs(new int[] {1, 2, 3, 1, 1, 3})).isEqualTo(4);
+    int[] input = new int[] {1, 2, 3, 1, 1, 3};
+    var actual = task1.numIdenticalPairs(input);
+
+    assertThat(actual).isEqualTo(4);
   }
 
   @Test
   void pairAtFirstAndLast() {
-    assertThat(task1.numIdenticalPairs(new int[] {5, 1, 2, 5})).isEqualTo(1);
+    int[] input = new int[] {5, 1, 2, 5};
+    var actual = task1.numIdenticalPairs(input);
+
+    assertThat(actual).isEqualTo(1);
   }
 
   @Test
   void minAndMaxValues() {
-    assertThat(task1.numIdenticalPairs(new int[] {1, 100, 1, 100})).isEqualTo(2);
+    int[] input = new int[] {1, 100, 1, 100};
+    var actual = task1.numIdenticalPairs(input);
+
+    assertThat(actual).isEqualTo(2);
   }
 
   @Test
   void maxLengthAllDistinct() {
-    int[] nums = new int[100];
-    for (int i = 0; i < nums.length; i++) {
-      nums[i] = i + 1;
+    int[] input = new int[100];
+    for (int i = 0; i < input.length; i++) {
+      input[i] = i + 1;
     }
-    assertThat(task1.numIdenticalPairs(nums)).isZero();
+    var actual = task1.numIdenticalPairs(input);
+
+    assertThat(actual).isZero();
   }
 }
